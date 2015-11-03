@@ -44,21 +44,43 @@ public class linkedDeque {
 	}
 
 	public void deleteLeft() {
-		dequeNode temp = new dequeNode();
-		left.getRightLink().setLeftLink(null);
-		temp = left;
-		left = left.getRightLink();
-		temp.setRightLink(null);
-		size--;
+		if (this.size == 0) {
+			System.out.println("nothing to delete");
+		} else {
+		if(this.size == 1) {
+			dequeNode empty = new dequeNode();
+			this.left = empty;
+			this.right = empty;
+			size--;
+		} else {
+		    dequeNode temp = new dequeNode();
+		    left.getRightLink().setLeftLink(null);
+		    temp = left;
+		    left = left.getRightLink();
+		    temp.setRightLink(null);
+		    size--;
+	      }
+       }
 	}
 
 	public void deleteRight() {
-		dequeNode temp = new dequeNode();
-		right.getLeftLink().setRightLink(null);
-		temp = right;
-		right = right.getLeftLink();
-		temp.setLeftLink(null);
-		size--;
+		if (this.size == 0) {
+			System.out.println("nothing to delete");
+		} else {
+			if (this.size == 1){
+                dequeNode empty = new dequeNode();
+                this.left = empty;
+                this.right = empty;
+                size--;
+			} else {
+		        dequeNode temp = new dequeNode();
+		        right.getLeftLink().setRightLink(null);
+				temp = right;
+				right = right.getLeftLink();
+				temp.setLeftLink(null);
+				size--;
+	         }
+	     }
 	}
 
 	public Object left() {
@@ -111,10 +133,18 @@ public class linkedDeque {
 		testDeque.insertRight('a');
 		System.out.println(testDeque.toString());
         
+        //right left and size test
+		System.out.println(testDeque.left());
+		System.out.println(testDeque.right());
+		System.out.println(testDeque.size());
+        
         //deleteRight test
         testDeque.deleteRight();
         testDeque.deleteRight();
         testDeque.deleteRight();
+        testDeque.deleteLeft();
+        testDeque.insertLeft(1);
+        System.out.println(testDeque.toString());
 
 
 	}
