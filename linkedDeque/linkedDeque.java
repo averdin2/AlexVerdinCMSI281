@@ -84,11 +84,19 @@ public class linkedDeque {
 	}
 
 	public Object left() {
-        return this.left.getInfo();
+		if(this.size == 0) {
+			return null;
+		} else {
+			return this.left.getInfo();
+		}
 	}
 
 	public Object right() {
-		return this.right.getInfo();
+		if(this.size == 0) {
+			return null;
+		}else {
+			return this.right.getInfo();
+		}
 	}
 
 	public int size() {
@@ -98,12 +106,17 @@ public class linkedDeque {
 	public String toString() {
 		String dequeString = "";
 		dequeNode temp = this.left;
+		if (this.size == 0) {
+			return null;
+		} else {
 		while (temp != this.right) {
 			dequeString = dequeString + "[" + temp.getInfo() + "]";
 			temp = temp.getRightLink();
 		}
 		dequeString = dequeString + "[" + right.getInfo() + "]";
+	    // }
 		return dequeString;
+	}
 	}
 
 	public static void main (String[] args) {
@@ -114,6 +127,11 @@ public class linkedDeque {
 		} else {
 			System.out.println("constructor working");
 		}
+
+		//tests will return null because there is nothing in the deque to return 
+		System.out.println(testDeque.toString());
+		System.out.println(testDeque.left());
+		System.out.println(testDeque.right());
 
 		//insertLeft test
 		testDeque.insertLeft('c');
