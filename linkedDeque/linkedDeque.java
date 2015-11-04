@@ -45,7 +45,7 @@ public class linkedDeque {
 
 	public void deleteLeft() {
 		if (this.size == 0) {
-			System.out.println("nothing to delete");
+			throw new IllegalArgumentException();
 		} else {
 		if(this.size == 1) {
 			dequeNode empty = new dequeNode();
@@ -65,7 +65,7 @@ public class linkedDeque {
 
 	public void deleteRight() {
 		if (this.size == 0) {
-			System.out.println("nothing to delete");
+			throw new IllegalArgumentException();
 		} else {
 			if (this.size == 1){
                 dequeNode empty = new dequeNode();
@@ -85,7 +85,7 @@ public class linkedDeque {
 
 	public Object left() {
 		if(this.size == 0) {
-			return null;
+			throw new IllegalArgumentException();
 		} else {
 			return this.left.getInfo();
 		}
@@ -93,7 +93,7 @@ public class linkedDeque {
 
 	public Object right() {
 		if(this.size == 0) {
-			return null;
+			throw new IllegalArgumentException();
 		}else {
 			return this.right.getInfo();
 		}
@@ -107,7 +107,7 @@ public class linkedDeque {
 		String dequeString = "";
 		dequeNode temp = this.left;
 		if (this.size == 0) {
-			return null;
+			throw new IllegalArgumentException();
 		} else {
 		while (temp != this.right) {
 			dequeString = dequeString + "[" + temp.getInfo() + "]";
