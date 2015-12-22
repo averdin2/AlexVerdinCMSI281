@@ -7,3 +7,5 @@ LinkedDeque: 30/35
   * Also, class names should be in the form CamelCase and not camelCase.
 
 Binary Tree: 27/45
+
+WordFrequencies: 25/35
